@@ -5,12 +5,9 @@ import "@openzeppelin/contracts@4.8.3/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts@4.8.3/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts@4.8.3/security/Pausable.sol";
 import "@openzeppelin/contracts@4.8.3/access/Ownable.sol";
-import "@openzeppelin/contracts@4.8.3/token/ERC20/extensions/draft-ERC20Permit.sol";
 
-contract Neo is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit {
-    constructor() ERC20("Neo", "NEO") ERC20Permit("Neo") {
-        _mint(msg.sender, 21000000 * 10 ** decimals());
-    }
+contract NeoTokens is ERC20, ERC20Burnable, Pausable, Ownable {
+    constructor() ERC20("Neo tokens", "NEO") {}
 
     function pause() public onlyOwner {
         _pause();
